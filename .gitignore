@@ -1,1 +1,4 @@
-plugin/
+nvim/plugin/
+configstore/
+iterm2/
+xnviewmp/
