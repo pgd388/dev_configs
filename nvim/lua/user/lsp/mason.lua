@@ -1,7 +1,7 @@
 local servers = {
-	"sumneko_lua",
-	"emmet_ls",
-	"jsonls",
+    "lua_ls",
+    "emmet_ls",
+    "jsonls",
     "cssls",
     "intelephense"
 }
