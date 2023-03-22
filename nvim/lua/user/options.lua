@@ -30,8 +30,8 @@ local options = {
   numberwidth = 4,                         -- set number column width to 2 {default 4}
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   wrap = false,                            -- display lines as one long line
-  scrolloff = 3,                           -- is one of my fav
-  sidescrolloff = 3,
+  scrolloff = 2,                           -- is one of my fav
+  sidescrolloff = 2,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
@@ -43,3 +43,23 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+
+if vim.fn.has("wsl") == 1 then
+vim.api.nvim_exec(
+	    [[
+		let g:clipboard = {
+        \   'name': 'WslClipboard',
+        \   'copy': {
+        \      '+': 'clip.exe',
+        \      '*': 'clip.exe',
+        \    },
+        \   'paste': {
+        \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
+	    ]],
+		true
+	)
+end

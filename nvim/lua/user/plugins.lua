@@ -55,10 +55,18 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   use "neovim/nvim-lspconfig" -- enable LSP
+  use "mbbill/undotree" -- advanced undo functionality in tree layout
   use "williamboman/mason.nvim" -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}) -- improve syntax highlighting
-
+  use "HiPhish/nvim-ts-rainbow2" -- associative highlighting for parantheses/brackets
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  } -- fuzzy finder
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end} -- built in terminal
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
