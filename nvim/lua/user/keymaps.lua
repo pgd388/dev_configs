@@ -3,10 +3,11 @@ local keymap = vim.api.nvim_set_keymap
 
 keymap("n", "sw", ":set wrap<CR>", opts)
 keymap("n", "nw", ":set nowrap<CR>", opts)
-keymap("n", "sd", ":lua vim.diagnostic.config({ virtual_text = true })<CR>", opts)
-keymap("n", "nd", ":lua vim.diagnostic.config({ virtual_text = false })<CR>", opts)
 keymap("n", "ee", ":e %:p:h/<CR>", opts)
 keymap("n", "eee", ":e!<CR>", opts)
+keymap("n", " bn", ":enew", opts)
+keymap("n", "bj", ":bprevious<CR>", opts)
+keymap("n", "bk", ":bnext<CR>", opts)
 keymap("n", "-", "$", opts)
 keymap("n", " ", ":", opts)
 keymap("n", "  ", "/", opts)
